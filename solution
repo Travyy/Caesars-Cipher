@@ -1,0 +1,28 @@
+function rot13(str) {
+  
+  var uniArr = [];
+  var newUniArr = [];
+  
+  for (i = 0; i < str.length; i++)  {
+    uniArr.push(str.charCodeAt(i));
+  }
+  
+  for (j = 0; j < uniArr.length; j++)  {
+    if (uniArr[j] >= 65 && uniArr[j] <= 77)  {
+      newUniArr.push(String.fromCharCode(uniArr[j] + 13));
+    } 
+    else if (uniArr[j] >= 78 && uniArr[j] <= 90)  {
+      //var count = (12 - (90 - uniArr[j]));                  old 
+      //newUniArr.push(String.fromCharCode(65 + count));      solution
+      newUniArr.push(String.fromCharCode(uniArr[j] - 13));
+    }    
+    else  {
+      newUniArr.push(String.fromCharCode(uniArr[j]));
+    }
+  }
+  
+  var newStr = newUniArr.join('');
+  return newStr;
+}
+
+rot13("SERR PBQR PNZC");
